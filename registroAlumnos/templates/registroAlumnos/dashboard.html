@@ -11,6 +11,10 @@
 <body>
 <div class="container mt-5">
     <h2 class="mb-4 text-center">Estadísticas de Alumnos Inscritos por Edad</h2>
+    <!-- Botón Volver a lista -->
+    <div class="text-center mb-4">
+        <a href="{% url 'lista_alumnos' %}" class="btn btn-secondary">Volver a la Lista de Alumnos</a>
+    </div>
     <div>
         <canvas id="chartAlumnosPorEdad"></canvas>
     </div>
@@ -18,20 +22,33 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    // Recuperar y parsear los datos de edades y cantidades del contexto
     var edades = JSON.parse('{{ edades_json|safe }}');
     var cantidades = JSON.parse('{{ cantidades_json|safe }}');
     
     var ctx = document.getElementById('chartAlumnosPorEdad').getContext('2d');
     var chartAlumnosPorEdad = new Chart(ctx, {
-        type: 'bar', // Tipo de gráfico
+        type: 'bar',
         data: {
-            labels: edades, // Edades como etiquetas
+            labels: edades,
             datasets: [{
                 label: 'Cantidad de Alumnos por Edad',
-                data: cantidades, // Datos de cantidad de alumnos por edad
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
+                data: cantidades,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
                 borderWidth: 1
             }]
         },
@@ -39,6 +56,15 @@ document.addEventListener('DOMContentLoaded', function () {
             scales: {
                 y: {
                     beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 14
+                        }
+                    }
                 }
             }
         }
