@@ -11,7 +11,6 @@
 <body>
 <div class="container mt-5">
     <h2 class="mb-4 text-center">Estadísticas de Alumnos Inscritos por Edad</h2>
-    <!-- Botón Volver a lista -->
     <div class="text-center mb-4">
         <a href="{% url 'lista_alumnos' %}" class="btn btn-secondary">Volver a la Lista de Alumnos</a>
     </div>
@@ -55,7 +54,23 @@ document.addEventListener('DOMContentLoaded', function () {
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Cantidad Alumnos',
+                        font: {
+                            size: 16
+                        }
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Edades',
+                        font: {
+                            size: 16
+                        }
+                    }
                 }
             },
             plugins: {
