@@ -1,0 +1,68 @@
+/* estilos.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 2px solid red; /* Rojo por defecto */
+    border-radius: 5px;
+    outline: none; /* Eliminar el resplandor azul en foco en algunos navegadores */
+    transition: border-color 0.3s; /* Transición suave para el cambio de color */
+}
+
+input[type="text"]:valid,
+input[type="email"]:valid,
+input[type="date"]:valid {
+    border-color: blue; /* Azul cuando el input tiene contenido válido */
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: blue;
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Alumnos por Edad</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Estadísticas de Alumnos Inscritos por Edad</h2>
+    <div>
+        <canvas id="chartAlumnosPorEdad"></canvas>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Recuperar y parsear los datos de edades y cantidades del contexto
+    var edades = JSON.parse('{{ edades_json|safe }}');
+    var cantidades = JSON.parse('{{ cantidades_json|safe }}');
+    
+    var ctx = document.getElementById('chartAlumnosPorEdad').getContext('2d');
+    var chartAlumnosPorEdad = new Chart(ctx, {
+        type: 'bar', // Tipo de gráfico
+        data: {
+            labels: edades, // Edades como etiquetas
+            datasets: [{
+                label: 'Cantidad de Alumnos por Edad',
+                data: cantidades, // Datos de cantidad de alumnos por edad
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+});
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

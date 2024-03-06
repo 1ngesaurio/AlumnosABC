@@ -1,0 +1,87 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea; /* Líneas más sutiles entre filas */
+}
+
+th {
+    font-weight: normal; /* No negritas en los encabezados para un look más suave */
+    color: #888; /* Color suave para los encabezados de la tabla */
+}
+
+a {
+    text-decoration: none;
+    color: #007bff; /* Un azul más suave */
+    transition: color 0.3s; /* Transición suave para el hover */
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Espaciado alrededor de los elementos para un look más 'aireado' */
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.button {
+    background-color: #007bff; /* Botón azul */
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px; /* Bordes redondeados para los botones */
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos adicionales para formularios si es necesario */
+input[type="text"],
+input[type="email"],
+input[type="date"] {
+    width: calc(100% - 22px); /* 100% ancho menos el padding */
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px; /* Bordes redondeados para los inputs */
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
