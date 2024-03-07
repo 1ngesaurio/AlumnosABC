@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect
-from django.db.models import Count, ExpressionWrapper, fields
 from django.db.models.functions import Now
-from datetime import datetime
 from datetime import date
 from collections import Counter
 import json
