@@ -1,5 +1,5 @@
 {% load static %}
-{% load widget_tweaks %}  
+{% load widget_tweaks %}
 
 <!DOCTYPE html>
 <html lang="es">
@@ -44,7 +44,11 @@
         {% for field in form %}
             <div class="form-group">
                 <label>{{ field.label }}</label>
-                {% render_field field class="form-control" %}
+                {% if field.name == 'fechaNacimiento' %}
+                    <input type="date" name="{{ field.html_name }}" value="{{ field.value|date:'Y-m-d' }}" class="form-control" id="{{ field.id_for_label }}" required>
+                {% else %}
+                    {% render_field field class="form-control" %}
+                {% endif %}
                 {% if field.help_text %}
                     <small class="form-text text-muted">{{ field.help_text }}</small>
                 {% endif %}

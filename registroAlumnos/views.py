@@ -41,6 +41,7 @@ def cambio_alumno(request, pk):
 
 
 
+
 def calcular_edad(fecha_nacimiento):
     """Calcula la edad basada en la fecha de nacimiento."""
     hoy = date.today()

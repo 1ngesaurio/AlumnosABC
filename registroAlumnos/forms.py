@@ -1,7 +1,7 @@
 from django import forms
-from django.forms import DateInput
 from django.core.validators import RegexValidator
 from .models import Alumno
+from django.forms.widgets import DateInput
 
 class AlumnoForm(forms.ModelForm):
     carnet_validator = RegexValidator(
@@ -14,10 +14,7 @@ class AlumnoForm(forms.ModelForm):
         model = Alumno
         fields = ['carnet', 'nombres', 'apellidos', 'correoElectronico', 'fechaNacimiento']
         widgets = {
-            'fechaNacimiento': DateInput(format='%d/%m/%Y', attrs={'type': 'date'}),
-        }
-        input_formats = {
-            'fechaNacimiento': ['%d/%m/%Y'],
+            'fechaNacimiento': DateInput(attrs={'type': 'date'}),
         }
         error_messages = {
             'carnet': {
@@ -27,3 +24,4 @@ class AlumnoForm(forms.ModelForm):
                 'unique': ("Un alumno con este Correo Electrónico ya existe."),
             },
         }
+
